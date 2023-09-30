@@ -57,6 +57,7 @@ export default LoginSscrewn = ({ navigation }) => {
 
             <TouchableOpacity
                 style={LoginStyle.button}
+                onPress={() => navigation.navigate("Inicio")}
             >
                 <Text style={LoginStyle.TextInput}>Acessar</Text>
             </TouchableOpacity>
