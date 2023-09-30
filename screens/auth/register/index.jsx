@@ -2,26 +2,13 @@ import { Image, Text, TextInput, TouchableOpacity, View, Alert } from "react-nat
 import { register } from "./style";
 import { Formik } from 'formik';
 import { Validacao } from "./validacao";
-import { List } from "native-base";
-import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import AsyncStor from "../../../config/AsyncStorage";
-
-import { Ionicons } from "@expo/vector-icons/";
-import { API_URL, config, promax } from "../../../config/api";
+import { promax } from "../../../config/api";
 export default function Register({ navigation }) {
 
-    const { salvarObjetoNoAsyncStorage, recuperarObjetoDoAsyncStorage } = AsyncStor();
-    const simpleAlertHandler = () => {
-        Alert.alert(
-            'O e-mail já foi Cadastrado ',
-            'Email ou palavra passe incorreta',
-        );
-    };
     return (
         <Formik initialValues={{ name: '', email: '', password: '', password_confirmation: '' }}
 
-            onSubmit={values => console.log(values)} validationSchema={Validacao}
+            onSubmit={values => promax(values)} validationSchema={Validacao}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
                 <View style={register.container}>
@@ -57,9 +44,6 @@ export default function Register({ navigation }) {
                         onBlur={handleBlur('password_confirmation')}
                         value={values.password_confirmation} secureTextEntry />
                     {errors.password_confirmation && <Text style={register.error}>{errors.password_confirmation}</Text>}
-
-
-
 
                     <TouchableOpacity style={register.bttun} onPress={handleSubmit} >
                         <Text style={register.btn}>Registar</Text>

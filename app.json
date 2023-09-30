@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/akaunting-loading.gif",
+      "image": "./assets/cloud.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -1,9 +1,14 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { Alert } from "react-native";
 export const API_URL = "http://192.168.79.54:8084/";
 
-// export const config = {
-//     API: "jfndkfj",
-// }
-
+const simpleAlertHandler = () => {
+    Alert.alert(
+        'O e-mail já foi Cadastrado ',
+        'Email ou palavra passe incorreta',
+    );
+};
 
 export const promax = (values) => {
     axios.post(API_URL + 'api/register/', {
@@ -13,6 +18,7 @@ export const promax = (values) => {
         password_confirmation: values.password_confirmation,
     })
         .then(function (response) {
+            console.log(response.data);
             const objetoSerializado = JSON.stringify(response.data);
             AsyncStorage.setItem('token', objetoSerializado);
         })
@@ -20,4 +26,10 @@ export const promax = (values) => {
             console.log(error);
             simpleAlertHandler();
         })
+
 }
+
+//Outra forma
+// export const config = {
+//     API: "jfndkfj",
+// }
