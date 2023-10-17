@@ -4,24 +4,25 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import login from '../screens/auth/login';
 import Register from "../screens/auth/register";
 import ForgetPassword from "../screens/auth/forget";
-import Inicio from '../screens/inicio';
+import { Onboarding } from '../screens/onboarding';
 import Tabs from './tabs';
-import { PaperProvider } from 'react-native-paper';
+import { OverView } from '../screens/overview';
 
 const Stack = createNativeStackNavigator();
 export default function StackNavigation() {
 
     return (
-        <PaperProvider>
-            <NavigationContainer >
-                <Stack.Navigator>
-                    <Stack.Screen name="LoginScreen" component={login} options={{ headerShown: false }} />
-                    <Stack.Screen name="ForgetPassword" component={ForgetPassword} options={{ headerShown: false }} />
-                    <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
-                    <Stack.Screen name="Inicio" component={Tabs} options={{ headerShown: false }} />
-                </Stack.Navigator>
-            </NavigationContainer>
-        </PaperProvider>
+
+        <NavigationContainer >
+            <Stack.Navigator>
+                <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+                <Stack.Screen name="OverView" component={OverView} options={{ headerShown: false }} />
+                <Stack.Screen name="Boarding" component={Onboarding} options={{ headerShown: false }} />
+                <Stack.Screen name="login" component={login} options={{ headerShown: false }} />
+                <Stack.Screen name="ForgetPassword" component={ForgetPassword} options={{ headerShown: false }} />
+                <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
 
