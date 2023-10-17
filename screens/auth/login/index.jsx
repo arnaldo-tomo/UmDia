@@ -1,4 +1,4 @@
-import { NativeBaseProvider } from "native-base";
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
     Image,
@@ -11,28 +11,6 @@ import React, { useEffect } from "react";
 import { LoginStyle } from "./style";
 
 export default LoginSscrewn = ({ navigation }) => {
-    useEffect(() => {
-        recuperarObjetoDoAsyncStorage();
-    }, [])
-
-
-    const recuperarObjetoDoAsyncStorage = async () => {
-        try {
-            const objetoSerializado = await AsyncStorage.getItem('token');
-            if (objetoSerializado !== null) {
-
-                const objetoRecuperado = JSON.parse(objetoSerializado);
-                console.log('Objeto recuperado do AsyncStorage:', objetoRecuperado);
-                return objetoRecuperado;
-            } else {
-                console.log('Nenhum objeto encontrado para a chave no AsyncStorage');
-                return null;
-            }
-        } catch (error) {
-            console.error('Erro ao recuperar objeto do AsyncStorage:', error);
-            return null;
-        }
-    }
 
     return (
         <View style={LoginStyle.container}>
@@ -57,7 +35,7 @@ export default LoginSscrewn = ({ navigation }) => {
 
             <TouchableOpacity
                 style={LoginStyle.button}
-                onPress={() => navigation.navigate("Inicio")}
+                onPress={() => navigation.navigate('HomePage')}
             >
                 <Text style={LoginStyle.TextInput}>Acessar</Text>
             </TouchableOpacity>
