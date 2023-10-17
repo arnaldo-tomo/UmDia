@@ -1,11 +1,16 @@
 
 import StackNavigation from "./Routers/stack";
-import MyComponent from "./Routers/tabs";
+import * as React from 'react';
+import { PaperProvider } from 'react-native-paper';
+
 export default function App() {
   return (
-    <StackNavigation />
-    // <MyComponent />
+
+    <PaperProvider>
+      <StackNavigation />
+    </PaperProvider>
   );
 }
+
 
 
