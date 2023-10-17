@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "Gym",
-    "slug": "UmDia",
+    "name": "powerGreen",
+    "slug": "powerGreen",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/spa.png",
+    "icon": "./assets/cloud.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/spa.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1F212C"
+      "backgroundColor": "#fff"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,12 +19,34 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/spa.png",
+        "foregroundImage": "./assets/cloud.png",
         "backgroundColor": "#1F212C"
-      }
+      },
+      "package": "com.arnaldotomo.powerGreen"
     },
     "web": {
       "favicon": "./assets/spa.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "08884418-7a13-459b-a571-e4a4def4c5e7"
+      }
     }
+  },
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": {}
   }
 }
