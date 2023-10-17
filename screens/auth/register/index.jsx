@@ -66,7 +66,7 @@ export default function Register({ navigation }) {
                     </TouchableOpacity>
                     <View style={register.jatesb}>
                         <Text>Ja Tens uma conta.?</Text>
-                        <TouchableOpacity onPress={() => navigation.push("LoginScreen")}>
+                        <TouchableOpacity onPress={() => navigation.push("login")}>
                             <Text style={register.textLogin}>Login</Text>
                         </TouchableOpacity>
                     </View>
