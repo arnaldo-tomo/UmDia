@@ -1,87 +1,32 @@
-@ -1, 86 + 0, 0 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, BottomNavigation, PaperProvider } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const Tab = createBottomTabNavigator();
-
-export default function Tabs({ navigation }) {
+import { Dimensions, ImageBackground, SafeAreaView, Text, Button, View, TouchableOpacity } from "react-native"
+import { LinearGradient } from "react-native-svg"
+import { LIGHT, PRIMARY_COLOR, SPANCING } from "../../config/themas"
+const { height, width } = Dimensions.get('screen')
+export const Onboarding = ({ navigation }) => {
     return (
+        <SafeAreaView>
+            <ImageBackground resizeMode="cover" style={{ width: width, height: height }} source={require('../../assets/images/onboarding.jpeg')}>
 
-        <Tab.Navigator
-            initialRouteName="Feed"
-            activeColor="#e91e63"
-            barStyle={{ backgroundColor: 'tomato' }}
-        >
-            <Tab.Screen
-                name="Feed"
-                component={HomeScreen}
-                options={{
-                    headerShown: false,
-                    tabBarLabel: 'Home',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="home" color={color} size={26} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Notifications"
-                component={SettingsScreen}
-                options={{
-                    headerShown: false,
-                    tabBarLabel: 'Updates',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="bell" color={color} size={26} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={Profile}
-                options={{
-                    headerShown: false,
-                    tabBarLabel: 'Profile',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="account" color={color} size={26} />
-                    ),
-                }}
-            />
-        </Tab.Navigator>
+                <View style={{ bottom: SPANCING * 4, position: 'absolute', alignItems: 'center' }}>
+                    <View style={{ justifyContent: 'center', marginBottom: SPANCING * 3, alignItems: 'center', textAlign: 'center' }}>
+                        <Text style={{ fontWeight: "900", fontSize: 35, color: LIGHT, justifyContent: 'center', textAlign: 'center' }}>
+                            Stay health even if you stay at home </Text>
+                        <Text style={{ fontWeight: "500", fontSize: 15, color: LIGHT, justifyContent: 'center', textAlign: 'center', padding: SPANCING * 2 }}>
+                            Staying fit to keep you in good condition can now go through mobile
+                            apps
+                        </Text>
+                    </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('Tabs')} style={{
+                        backgroundColor: PRIMARY_COLOR, padding: SPANCING,
+                        borderRadius: SPANCING, width: 340, height: 50,
+                        alignItems: 'center', justifyContent: 'center',
+                        marginLeft: SPANCING, marginRight: SPANCING
+                    }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15 }} >Get Started</Text>
+                    </TouchableOpacity>
+                </View>
 
-
-    );
+            </ImageBackground>
+        </SafeAreaView>
+    )
 }
-
-function HomeScreen() {
-    return (
-        <View style={styles.container}>
-            <Text variant="headlineMedium">Home!</Text>
-        </View>
-    );
-}
-
-function SettingsScreen() {
-    return (
-        <View style={styles.container}>
-            <Text variant="headlineMedium">Settings!</Text>
-        </View>
-    );
-}
-function Profile() {
-    return (
-        <View style={styles.container}>
-            <Text variant="headlineMedium">Settings!</Text>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
