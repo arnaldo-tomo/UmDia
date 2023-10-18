@@ -2,13 +2,15 @@ import { SafeAreaView, View, Text, TouchableOpacity, ImageBackground, ScrollView
 import { Ionicons } from "@expo/vector-icons";
 import { BLACK, BORDER, LIGHT, SECUNDARY_COLOR, SPANCING, PRIMARY_COLOR } from "../../config/themas";
 import { BlurView } from "expo-blur";
+import { StatusBar } from 'expo-status-bar';
 import { exercises, workoutPlans } from "../../data";
 const { height, width } = Dimensions.get('screen')
 export const OverView = ({ route, navigation }) => {
 
     const { id, name, coach, image, rating, minutes, calories, description, } = route.params;
     return (
-        <SafeAreaView style={{ backgroundColor: BLACK, width: width, height: height }}>
+        <View style={{ backgroundColor: BLACK, flex: 1 }}>
+            <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <View style={{ justifyContent: 'space-between', alignItems: 'center', padding: SPANCING, paddingTop: SPANCING * 4, flexDirection: 'row' }}>
                 <TouchableOpacity onPress={() => navigation.goBack()} style={{ backgroundColor: SECUNDARY_COLOR, borderRadius: SPANCING, borderColor: BORDER, padding: SPANCING, borderWidth: 1 }}>
                     <Ionicons name="chevron-back" size={20} color={LIGHT} />
@@ -87,6 +89,6 @@ export const OverView = ({ route, navigation }) => {
                     Start Workouts
                 </Text>
             </TouchableOpacity>
-        </SafeAreaView >
+        </View >
     )
 }
