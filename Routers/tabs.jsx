@@ -65,7 +65,6 @@ export default function Tabs() {
                 name="Home"
                 component={HomePage}
                 options={{
-                    tabBarLabel: 'Home', tabBarInactiveBackgroundColor: "blue",
                     tabBarIcon: ({ color, size }) => {
                         return <Ionicons name="home-outline" size={size} color={BLACK} />;
 
