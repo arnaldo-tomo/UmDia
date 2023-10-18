@@ -1,14 +1,15 @@
-import { TouchableOpacity, View, Text, Button, SafeAreaView, TextInput, ScrollView } from "react-native"
-import { HomePageStyle } from "./style"
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import { useState } from "react"
+import { TouchableOpacity, View, Text, Button, SafeAreaView, TextInput, ScrollView, Image } from "react-native"
+import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "react-native";
+import React, { useState, useEffect } from "react";
 import { DEFAULT_COLOR, LIGHT, PRIMARY_COLOR, SECUNDARY_COLOR, SPANCING, BORDER, BLACK } from "../../config/themas";
 import { categories, workoutPlans, workouts } from "../../data";
 export const HomePage = ({ navigation }) => {
+    const [active, setAtive] = useState(0);
+
     return (
-        <View style={{ backgroundColor: BLACK, flex: 1, overflow: "hidden", }}>
+        <View style={{ backgroundColor: BLACK, flex: 1 }}>
+            <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <SafeAreaView >
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, padding: 20, }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
@@ -37,12 +38,18 @@ export const HomePage = ({ navigation }) => {
                 </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: SPANCING * 2, paddingHorizontal: SPANCING }}>
-                    <Text style={{ padding: SPANCING, color: SECUNDARY_COLOR, backgroundColor: PRIMARY_COLOR, borderRadius: SPANCING, fontWeight: "bold" }}>ALL</Text>
+                    <TouchableOpacity onPress={() => setAtive(0)} >
+                        <Text style={[{
+                            padding: SPANCING, color: LIGHT, backgroundColor: SECUNDARY_COLOR, borderRadius: SPANCING,
+                            fontWeight: "bold"
+                        }, active == 0 && { padding: SPANCING, color: SECUNDARY_COLOR, backgroundColor: PRIMARY_COLOR, borderRadius: SPANCING, fontWeight: "bold" }]}>ALL</Text>
+                    </TouchableOpacity>
+
                     {categories.map((dado) =>
-                        <TouchableOpacity key={dado.id} >
+                        <TouchableOpacity key={dado.id} onPress={() => setAtive(dado.id)} >
                             <ScrollView horizontal>
-                                <View style={{ backgroundColor: SECUNDARY_COLOR, borderRadius: SPANCING, padding: 4 }}>
-                                    <Text key={dado.id} style={{ padding: 4, color: LIGHT, fontWeight: "700" }}>{dado.name}</Text>
+                                <View style={[{ backgroundColor: SECUNDARY_COLOR, borderRadius: SPANCING, padding: 4 }, active == dado.id && { backgroundColor: PRIMARY_COLOR, borderRadius: SPANCING, padding: 4, }]}>
+                                    <Text key={dado.id} style={[{ padding: 4, color: LIGHT, fontWeight: "700" }, active == dado.id && { padding: 4, color: BLACK, fontWeight: "700" }]}>{dado.name}</Text>
                                 </View>
                             </ScrollView>
                         </TouchableOpacity>
