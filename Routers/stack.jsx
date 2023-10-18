@@ -15,9 +15,9 @@ export default function StackNavigation() {
 
         <NavigationContainer >
             <Stack.Navigator>
+                <Stack.Screen name="Boarding" component={Onboarding} options={{ headerShown: false }} />
                 <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
                 <Stack.Screen name="OverView" component={OverView} options={{ headerShown: false }} />
-                <Stack.Screen name="Boarding" component={Onboarding} options={{ headerShown: false }} />
                 <Stack.Screen name="login" component={login} options={{ headerShown: false }} />
                 <Stack.Screen name="ForgetPassword" component={ForgetPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
