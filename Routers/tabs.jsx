@@ -7,16 +7,19 @@ import { CommonActions } from "@react-navigation/native";
 
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Ionicons } from "@expo/vector-icons";
-
+import style from "./style";
 import { HomePage } from '../screens/home';
-import { BLACK, LIGHT } from '../config/themas';
+import { BLACK, LIGHT, PRIMARY_COLOR } from '../config/themas';
 
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
     return (
         <Tab.Navigator
-            screenOptions={{ headerShown: false, }}
+            screenOptions={{
+                headerShown: false,
+                tabBarStyle: style.tabBar,
+            }}
             tabBar={({ navigation, state, descriptors, insets }) => (
                 <BottomNavigation.Bar
                     style={{ backgroundColor: '#1F212C' }}
@@ -57,7 +60,8 @@ export default function Tabs() {
 
                         return label;
                     }}
-
+                    inactiveColor={LIGHT}
+                    activeColor={PRIMARY_COLOR}
                 />
             )}
         >
@@ -98,7 +102,7 @@ export default function Tabs() {
                     },
                 }}
             />
-        </Tab.Navigator>
+        </Tab.Navigator >
     );
 }
 
