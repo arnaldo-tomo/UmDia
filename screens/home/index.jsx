@@ -1,14 +1,15 @@
-import { TouchableOpacity, View, Text, Button, SafeAreaView, TextInput, ScrollView, Image } from "react-native"
+import { TouchableOpacity, View, Text, Button, SafeAreaView, TextInput, ScrollView, Image, Dimensions } from "react-native"
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useEffect } from "react";
 import { DEFAULT_COLOR, LIGHT, PRIMARY_COLOR, SECUNDARY_COLOR, SPANCING, BORDER, BLACK } from "../../config/themas";
 import { categories, workoutPlans, workouts } from "../../data";
+const { width, height } = Dimensions.get('screen');
 export const HomePage = ({ navigation }) => {
     const [active, setAtive] = useState(0);
 
     return (
-        <View style={{ backgroundColor: BLACK, flex: 1 }}>
+        <View style={{ backgroundColor: BLACK, width: width, height: height }}>
             <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <SafeAreaView >
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, padding: 20, }}>
