@@ -1,28 +1,47 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, BottomNavigation } from 'react-native-paper';
 import { CommonActions } from "@react-navigation/native";
+const { width, height } = Dimensions.get('screen');
 
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Ionicons } from "@expo/vector-icons";
-import style from "./style";
+
 import { HomePage } from '../screens/home';
-import { BLACK, LIGHT, PRIMARY_COLOR } from '../config/themas';
+import { BLACK, LIGHT, PRIMARY_COLOR, SECUNDARY_COLOR } from '../config/themas';
+import { style } from './style';
+import { StatusBar } from 'expo-status-bar';
 
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
     return (
         <Tab.Navigator
+
             screenOptions={{
                 headerShown: false,
-                tabBarStyle: style.tabBar,
+                tabBarActiveTintColor: PRIMARY_COLOR,
+                tabBarInactiveTintColor: BLACK,
+                tabBarStyle: {
+                    backgroundColor: '#1F212C',
+                    color: "#FFF",
+                    bottom: 20,
+                    borderRadius: 20,
+                    marginRight: 10,
+                    marginLeft: 10,
+                    overflow: 'hidden',
+                    position: 'absolute'
+                }
             }}
             tabBar={({ navigation, state, descriptors, insets }) => (
+
                 <BottomNavigation.Bar
-                    style={{ backgroundColor: '#1F212C' }}
+
+                    activeColor={LIGHT}
+                    inactiveColor={PRIMARY_COLOR}
+                    style={style.tabBar}
                     navigationState={state}
                     safeAreaInsets={insets}
                     onTabPress={({ route, preventDefault }) => {
@@ -60,17 +79,25 @@ export default function Tabs() {
 
                         return label;
                     }}
-                    inactiveColor={LIGHT}
-                    activeColor={PRIMARY_COLOR}
+
                 />
             )}
         >
             <Tab.Screen
                 name="Home"
                 component={HomePage}
+
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="home-outline" size={size} color={BLACK} />;
+                    tabBarLabel: 'Home',
+                    tabBarLabelStyle: style.home,
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+                            return <Ionicons name="home" size={size} color={BLACK} />;
+
+                        } else {
+                            return <Ionicons name="home-outline" size={size} color={LIGHT} />;
+
+                        }
 
                     },
                 }}
@@ -79,8 +106,15 @@ export default function Tabs() {
                 name="Users"
                 component={Users}
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="people-outline" size={size} color={LIGHT} />;
+                    tabBarLabel: 'Coach',
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+
+                            return <Ionicons name="people" size={size} color={BLACK} />;
+                        } else {
+
+                            return <Ionicons name="people-outline" size={size} color={LIGHT} />;
+                        }
                     },
                 }}
             />
@@ -88,8 +122,15 @@ export default function Tabs() {
                 name="Calendar"
                 component={Calendar}
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="calendar-outline" size={size} color={LIGHT} />;
+                    tabBarLabel: 'Calendar',
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+
+                            return <Ionicons name="calendar" size={size} color={BLACK} />;
+                        } else {
+
+                            return <Ionicons name="calendar-outline" size={size} color={LIGHT} />;
+                        }
                     },
                 }}
             />
@@ -97,8 +138,15 @@ export default function Tabs() {
                 name="SettingsScreen"
                 component={SettingsScreen}
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="person-outline" size={size} color={LIGHT} />;
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+
+                            return <Ionicons name="person" size={size} color={BLACK} />;
+                        } else {
+
+                            return <Ionicons name="person-outline" size={size} color={LIGHT} />;
+                        }
                     },
                 }}
             />
@@ -110,21 +158,24 @@ export default function Tabs() {
 
 function Calendar() {
     return (
-        <View style={styles.container}>
+        <View style={{ backgroundColor: BLACK, width: width, height: height }} styles={styles.container}>
+            <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <Text variant="headlineMedium">Settings!</Text>
         </View>
     );
 }
 function Users() {
     return (
-        <View style={styles.container}>
+        <View style={{ backgroundColor: BLACK, width: width, height: height }}>
+            <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <Text variant="headlineMedium">Settings!</Text>
         </View>
     );
 }
 function SettingsScreen() {
     return (
-        <View style={styles.container}>
+        <View style={{ backgroundColor: BLACK, width: width, height: height }}>
+            <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <Text variant="headlineMedium">Settings!</Text>
         </View>
     );
