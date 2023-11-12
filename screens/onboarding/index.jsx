@@ -9,7 +9,7 @@ export const Onboarding = ({ navigation }) => {
             <StatusBar style='light' StatusBarAnimation='slide' translucent={true} />
             <ImageBackground resizeMode="cover" style={{ width: width, height: height }} source={require('../../assets/images/onboarding.jpeg')}>
 
-                <View style={{ bottom: SPANCING * 4, position: 'absolute', alignItems: 'center' }}>
+                <View style={{ bottom: 20, position: 'absolute', alignItems: 'center' }}>
                     <View style={{ justifyContent: 'center', marginBottom: SPANCING * 3, alignItems: 'center', textAlign: 'center' }}>
                         <Text style={{ fontWeight: "900", fontSize: 35, color: LIGHT, justifyContent: 'center', textAlign: 'center' }}>
                             Stay health even if you stay at home </Text>
@@ -28,7 +28,7 @@ export const Onboarding = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-            </ImageBackground>
-        </View>
+            </ImageBackground >
+        </View >
     )
 }
