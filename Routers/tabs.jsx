@@ -21,26 +21,31 @@ export default function Tabs() {
         <Tab.Navigator
 
             screenOptions={{
+
                 headerShown: false,
-                tabBarActiveTintColor: PRIMARY_COLOR,
+                tabBarActiveTintColor: BLACK,
                 tabBarInactiveTintColor: BLACK,
-                tabBarStyle: {
-                    backgroundColor: '#1F212C',
-                    color: "#FFF",
-                    bottom: 20,
-                    borderRadius: 20,
-                    marginRight: 10,
-                    marginLeft: 10,
-                    overflow: 'hidden',
-                    position: 'absolute'
-                }
+                tabBarLabelPosition: 'beside-icon',
+                tabBarHideOnKeyboard: false,
+                // tabBarStyle: {
+                //     backgroundColor: '#1F212C',
+                //     color: "#FFF",
+                //     bottom: 20,
+                //     borderRadius: 20,
+                //     marginRight: 10,
+                //     marginLeft: 10,
+                //     overflow: 'hidden',
+                //     position: 'absolute',
+
+                // }
             }}
             tabBar={({ navigation, state, descriptors, insets }) => (
 
                 <BottomNavigation.Bar
 
                     activeColor={LIGHT}
-                    inactiveColor={PRIMARY_COLOR}
+                    inactiveColor={LIGHT}
+                    keyboardHidesNavigationBar={true}
                     style={style.tabBar}
                     navigationState={state}
                     safeAreaInsets={insets}
