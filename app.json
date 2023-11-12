@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "powerGreen",
+    "name": "Fitness",
     "slug": "powerGreen",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/cloud.png",
+    "icon": "./assets/ajtomo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/spa.png",
+      "image": "./assets/wfundo.png",
       "resizeMode": "contain",
       "backgroundColor": "#fff"
     },
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/cloud.png",
+        "foregroundImage": "./assets/ajtomo.png",
         "backgroundColor": "#1F212C"
       },
       "package": "com.arnaldotomo.powerGreen"
