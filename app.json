@@ -19,8 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#1F212C"
+        "foregroundImage": "./assets/icon.png"
       },
       "package": "com.arnaldotomo.powerGreen"
     },
