@@ -18,11 +18,11 @@ export const OverView = ({ route, navigation }) => {
                 <Text style={{ color: LIGHT, fontWeight: 'bold', fontSize: 15 }}>Plan OverView</Text>
                 <Ionicons name="arrow-forward" size={20} color={BLACK} />
             </View>
-            <ScrollView >
+            <ScrollView style={{ width: width - 20, marginLeft: SPANCING }} >
                 <ImageBackground source={image} style={{
-                    width: 340, height: 250,
+                    height: 250,
                     padding: SPANCING, borderTopRightRadius: SPANCING,
-                    borderTopLeftRadius: SPANCING, marginLeft: SPANCING,
+                    borderTopLeftRadius: SPANCING,
                     marginBottom: SPANCING, marginTop: SPANCING * 2,
                     overflow: "hidden",
                 }}>
@@ -40,7 +40,7 @@ export const OverView = ({ route, navigation }) => {
 
                     </View>
                 </ImageBackground>
-                <View style={{ paddingHorizontal: SPANCING * 1, paddingVertical: SPANCING }}>
+                <View style={{ paddingVertical: SPANCING }}>
                     <View style={{ flexDirection: 'row', alignItems: "center", alignContent: 'center', justifyContent: "space-between" }}>
                         <Text style={{ color: LIGHT, fontWeight: 'bold', fontSize: 20 }}>{name}</Text>
                         <View style={{ flexDirection: 'row', alignItems: "center", paddingHorizontal: SPANCING, alignContent: 'center' }}>
@@ -53,14 +53,13 @@ export const OverView = ({ route, navigation }) => {
                     </View>
                     <View style={{ marginTop: SPANCING }}>
                         <Text style={{ color: LIGHT, fontWeight: 'bold', fontSize: 18 }}>Description</Text>
-                        <Text style={{ color: LIGHT, fontSize: 15 }}>{description}</Text>
+                        <Text style={{ color: LIGHT, fontSize: 15, textAlign: 'justify' }}>{description}</Text>
                     </View>
 
                     <Text style={{ color: LIGHT, fontWeight: 'bold', fontSize: 20, marginBottom: SPANCING, marginTop: SPANCING }} >Exercises ({exercises.length})</Text>
                     {exercises.map((workoutPlans) =>
                         <TouchableOpacity key={workoutPlans.id} style={{
-                            backgroundColor: SECUNDARY_COLOR, width: 330, height: 100,
-                            paddingVertical: SPANCING,
+                            backgroundColor: SECUNDARY_COLOR, width: width - 20, marginRight: 100, height: 100,
                             paddingVertical: SPANCING,
                             padding: SPANCING,
                             borderRadius: SPANCING,
