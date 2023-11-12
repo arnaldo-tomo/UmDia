@@ -11,7 +11,7 @@ export const style = StyleSheet.create({
         marginRight: 10,
         marginLeft: 10,
         overflow: 'hidden',
-        position: 'absolute'
+        position: 'absolute',
     }, home: {
         textDecorationColor: 'red',
         color: 'red',
