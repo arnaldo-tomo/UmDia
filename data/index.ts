@@ -41,7 +41,7 @@ interface Exercise {
   set: number;
 }
 
-// merda de relacionamento  mal feito
+// list of workouts exercises relacioa
 export const exercises: Exercise[] = [
   {
     id: 1,
