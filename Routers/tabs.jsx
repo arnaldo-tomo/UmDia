@@ -13,6 +13,8 @@ import { HomePage } from '../screens/home';
 import { BLACK, LIGHT, PRIMARY_COLOR, SECUNDARY_COLOR } from '../config/themas';
 import { style } from './style';
 import { StatusBar } from 'expo-status-bar';
+import pllus from '../components/pllus';
+import Plus from '../components/pllus';
 
 const Tab = createBottomTabNavigator();
 
@@ -124,8 +126,21 @@ export default function Tabs() {
                 }}
             />
             <Tab.Screen
+                name="Plus"
+                component={Plus}
+                options={{
+                    tabBarLabel: '',
+                    tabBarIcon: ({ color, size, focused }) => {
+
+
+                        return < Plus />;
+
+                    }
+                }}
+            />
+            <Tab.Screen
                 name="Calendar"
-                component={Calendar}
+                component={HomePage}
                 options={{
                     tabBarLabel: 'Calendar',
                     tabBarIcon: ({ color, size, focused }) => {
