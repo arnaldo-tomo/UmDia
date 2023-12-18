@@ -130,12 +130,7 @@ export default function Tabs() {
                 component={Plus}
                 options={{
                     tabBarLabel: '',
-                    tabBarIcon: ({ color, size, focused }) => {
-
-
-                        return < Plus />;
-
-                    }
+                    tabBarIcon: ({ color, size, focused }) => { return < Plus name={{ color, size, focused }} /> }
                 }}
             />
             <Tab.Screen
